@@ -1,0 +1,50 @@
+﻿@page
+@model MenuModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<link rel="stylesheet" href="~/css/Menu.css" />
+
+<h1>Menu</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Price)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Menu) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+                    @{
+                        var imagepath = @"img\" + item.ID + ".png";
+                    }
+                <td>
+                    <img src="@imagepath">
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

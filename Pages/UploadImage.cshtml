@@ -1,0 +1,13 @@
+﻿@page
+@model HamzilahFoods.Pages.UploadImageModel
+@{
+    ViewData["Title"] = "Upload Image";
+}
+<div class="text-center">
+    <h1>Upload Image</h1>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="UploadedFile" />
+    <input type="submit" />
+</form>

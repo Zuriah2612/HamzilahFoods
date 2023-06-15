@@ -1,0 +1,66 @@
+﻿  @page
+@model HamzilahFoods.Pages.Admin.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/Menu.css" />
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@using HamzilahFoods.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<h1>Update Menu</h1>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <h2>Only admin users can see this!</h2>
+    }
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu[0].Price)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Menu) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>|
+                <a asp-page="/UploadImage" asp-route-id="@item.ID">Upload Image</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

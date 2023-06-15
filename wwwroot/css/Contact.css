@@ -1,0 +1,17 @@
+﻿body {
+    
+}
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.rightside {
+    flex: 60%;
+}
+
+.Leftside {
+    flex: 80%;
+}

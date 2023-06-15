@@ -1,0 +1,27 @@
+﻿body {}
+
+
+table {
+    background-color: #D2B48C;
+    color: black;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #D2B48C;
+    color: black;
+    border: 2px solid black;
+    padding: 8px;
+    margin: 0;
+}
+
+td {
+    border: 2px solid black;
+    padding: 8px;
+    color: black;
+    margin: 0;
+}
+
+a {
+    color: black;
+}
